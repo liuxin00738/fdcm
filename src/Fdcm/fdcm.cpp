@@ -16,14 +16,15 @@
 void generate_edge_map(string file)
 {
     cv::Mat image = cv::imread(file);
+    cv::Mat blured_images;
     cv::Mat detected_edges;
-    cv::blur( image, detected_edges, cv::Size(3,3) );
+    cv::blur( image, blured_images, cv::Size(3,3) );
 
     int lowThreshold = 50, highThreshold = 80;
     int kernel_size = 3;
 
     /// Canny detector
-    Canny( detected_edges, detected_edges, lowThreshold, highThreshold, kernel_size );
+    Canny( blured_images, detected_edges, lowThreshold, highThreshold, kernel_size );
 
     cv::imshow("Edge map", detected_edges);
     cv::waitKey();
@@ -37,8 +38,9 @@ void generate_edge_map(string file)
 
 int main(int argc, char *argv[])
 {
-    //generate_edge_map(argv[1]);
-    //return 0;
+    // convert_to_pgm(argv[1]);
+
+    // return 0;
     std::cout<<"endter fdcm.cpp"<<std::endl;
 
 	if(argc < 7)
