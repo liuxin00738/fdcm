@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 {
     //generate_edge_map(argv[1]);
     //return 0;
+    std::cout<<"endter fdcm.cpp"<<std::endl;
 
 	if(argc < 7)
 	{
